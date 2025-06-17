@@ -7,7 +7,7 @@ WORKDIR /app
 # Instalar pnpm
 RUN npm install -g pnpm
 
-# Copiar el package.json y pnpm-lock.yaml
+# Copiar package.json y pnpm-lock.yaml
 COPY package.json pnpm-lock.yaml ./
 
 # Instalar las dependencias con pnpm
@@ -16,7 +16,7 @@ RUN pnpm install
 # Copiar todo el código fuente al contenedor
 COPY . .
 
-# Construir el proyecto para producción
+# Construir el proyecto para producción (Vite genera los archivos en dist/)
 RUN pnpm run build
 
 # Usar una imagen ligera de Nginx para servir la aplicación
