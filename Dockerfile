@@ -22,10 +22,21 @@ RUN pnpm run build
 # Usar una imagen ligera de Nginx para servir la aplicación
 FROM nginx:alpine
 
+# Crear configuración personalizada de Nginx
+RUN echo 'server { \
+    listen 8080; \
+    server_name localhost; \
+    root /usr/share/nginx/html; \
+    index index.html index.htm; \
+    location / { \
+        try_files $uri $uri/ /index.html; \
+    } \
+}' > /etc/nginx/conf.d/default.conf
+
 # Copiar los archivos generados desde la etapa anterior al contenedor Nginx
 COPY --from=build /app/dist /usr/share/nginx/html
 
-# Exponer el puerto 80 para el servidor Nginx
+# Exponer el puerto 8080
 EXPOSE 8080
 
 # Comando para ejecutar el servidor Nginx
