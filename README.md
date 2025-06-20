@@ -7,7 +7,7 @@ Este evento es organizado por **i3 Labs** y será manejado por dos clubes: **Kok
 ### i3 Labs Logo
 
 <div style="background-color: white; display: inline-block; padding: 10px; border-radius: 8px;">
-  <img src="./public/assets/clublogo/i3labsociallogo.png" alt="i3 Labs Logo" style="width: 150px; height: auto;">
+  <img src="./public/assets/clublogo/LOGO-I3LAB.png" alt="i3 Labs Logo" style="width: 150px; height: auto;">
 </div>
 
 ### Kokoa Club Logo
