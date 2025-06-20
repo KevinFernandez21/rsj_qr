@@ -2,7 +2,7 @@
 
 Este evento es organizado por **i3 Labs** y será manejado por dos clubes: **Kokoa** y **NIOT**. La actividad contará con códigos QR interactivos que guiarán a los jugadores a través de acertijos y pistas ocultas que revelan parte de una historia creada por una Inteligencia Artificial (IA).
 
-## Encargados de esta parte del Evento
+## Los encargados de esta parte del evento.
 
 ### i3 Labs Logo
 
