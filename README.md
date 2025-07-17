@@ -1,31 +1,73 @@
-# Ready, Set and Join - Evento de i3 Labs
+# Welcome to your Lovable project
 
-Este evento es organizado por **i3 Labs** y será manejado por dos clubes: **Kokoa** y **NIOT**. La actividad contará con códigos QR interactivos que guiarán a los jugadores a través de acertijos y pistas ocultas que revelan parte de una historia creada por una Inteligencia Artificial (IA).
+## Project info
 
-## Los encargados de esta parte del evento.
+**URL**: https://lovable.dev/projects/8767a0ce-9317-483d-affd-9c161c0b0db9
 
-### i3 Labs Logo
+## How can I edit this code?
 
-<div style="background-color: white; display: inline-block; padding: 10px; border-radius: 8px;">
-  <img src="./public/assets/clublogo/LOGO-I3LAB.png" alt="i3 Labs Logo" style="width: 150px; height: auto;">
-</div>
+There are several ways of editing your application.
 
-### Kokoa Club Logo
+**Use Lovable**
 
-<div style="background-color: white; display: inline-block; padding: 10px; border-radius: 8px;">
-  <img src="./public/assets/clublogo/kokoalogo.png" alt="Kokoa Club Logo" style="width: 150px; height: auto;">
-</div>
+Simply visit the [Lovable Project](https://lovable.dev/projects/8767a0ce-9317-483d-affd-9c161c0b0db9) and start prompting.
 
-### NIOT Club Logo
+Changes made via Lovable will be committed automatically to this repo.
 
-<div style="background-color: white; display: inline-block; padding: 10px; border-radius: 8px;">
-  <img src="./public/assets/clublogo/niotlogo.png" alt="NIOT Club Logo" style="width: 150px; height: auto;">
-</div>
+**Use your preferred IDE**
 
-## Contexto
+If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
 
-La IA, en su fase "amigable", podría guiar a los jugadores con las pistas QR. Las "notas" de la IA sobre su creación y motivaciones pueden estar escondidas en estos códigos, como recompensas por resolver los primeros acertijos. 
+The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
-Por ejemplo, al escanear un QR con una respuesta correcta, se desbloquea una parte de la historia de la IA y una nueva pista.
+Follow these steps:
 
+```sh
+# Step 1: Clone the repository using the project's Git URL.
+git clone <YOUR_GIT_URL>
 
+# Step 2: Navigate to the project directory.
+cd <YOUR_PROJECT_NAME>
+
+# Step 3: Install the necessary dependencies.
+npm i
+
+# Step 4: Start the development server with auto-reloading and an instant preview.
+npm run dev
+```
+
+**Edit a file directly in GitHub**
+
+- Navigate to the desired file(s).
+- Click the "Edit" button (pencil icon) at the top right of the file view.
+- Make your changes and commit the changes.
+
+**Use GitHub Codespaces**
+
+- Navigate to the main page of your repository.
+- Click on the "Code" button (green button) near the top right.
+- Select the "Codespaces" tab.
+- Click on "New codespace" to launch a new Codespace environment.
+- Edit files directly within the Codespace and commit and push your changes once you're done.
+
+## What technologies are used for this project?
+
+This project is built with:
+
+- Vite
+- TypeScript
+- React
+- shadcn-ui
+- Tailwind CSS
+
+## How can I deploy this project?
+
+Simply open [Lovable](https://lovable.dev/projects/8767a0ce-9317-483d-affd-9c161c0b0db9) and click on Share -> Publish.
+
+## Can I connect a custom domain to my Lovable project?
+
+Yes, you can!
+
+To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+
+Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
