@@ -3,7 +3,6 @@ import { QRScanner } from './QRScanner';
 import { QrResult } from './QrResult';
 import { ContentDisplay } from './ContentDisplay';
 import { NavigationMenu } from './NavigationMenu';
-import { QRTestCodes } from './QRTestCodes';
 import { Timer } from './Timer';
 import { FinalPasswordPanel } from './FinalPasswordPanel';
 import { Button } from '@/components/ui/button';
@@ -148,66 +147,10 @@ export const EscapeRoom: React.FC = () => {
             ) : (
               <>
                 {/* Welcome Card - Only show if no content discovered */}
-                {discoveredContent.length === 0 && !currentContent && (
-                  <Card className="p-8 text-center holo-border">
-                    <div className="space-y-6">
-                      <div className="mx-auto h-20 w-20 bg-gradient-to-br from-neon-cyan to-neon-purple rounded-full flex items-center justify-center">
-                        <Cpu className="h-10 w-10 text-black" />
-                      </div>
-                      
-                      <div className="space-y-3">
-                        <h2 className="text-3xl font-bold text-transparent bg-clip-text"
-                            style={{backgroundImage: 'var(--gradient-primary)'}}>
-                          Bienvenido al QR Escape Verse
-                        </h2>
-                        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                          Adéntrate en un mundo futurista donde los códigos QR guardan secretos, 
-                          acertijos y sorpresas. Escanea, resuelve y descubre todos los misterios 
-                          que te esperan en este escape room digital.
-                        </p>
-                      </div>
-
-                      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
-                        <div className="p-4 bg-muted rounded-lg holo-border">
-                          <div className="text-neon-cyan text-2xl font-bold mb-2">🔍</div>
-                          <h3 className="font-semibold text-neon-cyan">Escanea</h3>
-                          <p className="text-sm text-muted-foreground">
-                            Usa tu cámara o sube imágenes de códigos QR
-                          </p>
-                        </div>
-                        <div className="p-4 bg-muted rounded-lg holo-border">
-                          <div className="text-neon-purple text-2xl font-bold mb-2">🧩</div>
-                          <h3 className="font-semibold text-neon-purple">Resuelve</h3>
-                          <p className="text-sm text-muted-foreground">
-                            Completa acertijos y encuentra pistas ocultas
-                          </p>
-                        </div>
-                        <div className="p-4 bg-muted rounded-lg holo-border">
-                          <div className="text-neon-pink text-2xl font-bold mb-2">🏆</div>
-                          <h3 className="font-semibold text-neon-pink">Descubre</h3>
-                          <p className="text-sm text-muted-foreground">
-                            Encuentra huevos de pascua y secretos especiales
-                          </p>
-                        </div>
-                      </div>
-
-                      <div className="mt-8">
-                        <Zap className="inline h-5 w-5 text-neon-orange mr-2" />
-                        <span className="text-sm text-muted-foreground">
-                          ¡Comienza escaneando tu primer código QR para iniciar la aventura!
-                        </span>
-                      </div>
-                    </div>
-                  </Card>
-                )}
+                
 
                 {/* QR Scanner */}
                 <QRScanner onScanResult={handleQRScan} />
-                
-                {/* QR Test Codes - Only show if no content discovered */}
-                {discoveredContent.length === 0 && (
-                  <QRTestCodes onTestCode={handleQRScan} />
-                )}
                 
                 {/* Content Display */}
                 <ContentDisplay
@@ -256,28 +199,6 @@ export const EscapeRoom: React.FC = () => {
           )}
         </div>
       </div>
-
-      {/* Testing QR Codes Helper - Only in development */}
-      {process.env.NODE_ENV === 'development' && (
-        <div className="fixed bottom-4 right-4 z-40">
-          <Card className="p-4 bg-muted/50 backdrop-blur-sm">
-            <p className="text-xs text-muted-foreground mb-2">QR Codes de prueba:</p>
-            <div className="grid grid-cols-2 gap-1 text-xs">
-              {['pista1', 'acertijo1', 'huevo1'].map(code => (
-                <Button
-                  key={code}
-                  variant="ghost"
-                  size="sm"
-                  onClick={() => handleQRScan(code)}
-                  className="h-6 px-2 text-xs"
-                >
-                  {code}
-                </Button>
-              ))}
-            </div>
-          </Card>
-        </div>
-      )}
     </div>
   );
 };
