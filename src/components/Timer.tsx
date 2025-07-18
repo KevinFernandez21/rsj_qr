@@ -27,24 +27,20 @@ export const Timer: React.FC<TimerProps> = ({
   }, [isGameStarted]);
 
   useEffect(() => {
-    let interval: NodeJS.Timeout;
-
-    if (isRunning) {
-      interval = setInterval(() => {
-        setTimeElapsed(prev => {
-          const newTime = prev + 1;
-          onTimeUpdate?.(newTime);
-          return newTime;
-        });
-      }, 1000);
-    }
-
-    return () => {
-      if (interval) {
-        clearInterval(interval);
+    const interval = setInterval(() => {
+      const start = localStorage.getItem('escape-room-start-time');
+      if (start && isGameStarted) {
+        const elapsed = Math.floor((Date.now() - parseInt(start)) / 1000);
+        setTimeElapsed(elapsed);
+        onTimeUpdate?.(elapsed);
+      } else {
+        setTimeElapsed(0);
       }
-    };
-  }, [isRunning, onTimeUpdate]);
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [isGameStarted]);
+
 
   const formatTime = (seconds: number) => {
     const hours = Math.floor(seconds / 3600);

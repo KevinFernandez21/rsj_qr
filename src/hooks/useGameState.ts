@@ -112,9 +112,12 @@ export const useGameState = () => {
   };
 
   const startGame = () => {
+    const startTimestamp = Date.now();
+    localStorage.setItem('escape-room-start-time', startTimestamp.toString());
     setIsGameStarted(true);
-    setGameTime(0);
   };
+
+
 
   const resetGame = () => {
     setDiscoveredContent([]);
@@ -122,7 +125,10 @@ export const useGameState = () => {
     setIsGameStarted(false);
     setGameTime(0);
     localStorage.removeItem(STORAGE_KEY);
+    localStorage.removeItem('escape-room-start-time');
   };
+
+
 
   return {
     discoveredContent,
