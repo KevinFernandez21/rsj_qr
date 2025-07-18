@@ -117,8 +117,6 @@ export const useGameState = () => {
     setIsGameStarted(true);
   };
 
-
-
   const resetGame = () => {
     setDiscoveredContent([]);
     setCurrentContent(null);
@@ -127,7 +125,6 @@ export const useGameState = () => {
     localStorage.removeItem(STORAGE_KEY);
     localStorage.removeItem('escape-room-start-time');
   };
-
 
 
   return {

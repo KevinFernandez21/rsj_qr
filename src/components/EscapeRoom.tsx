@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { QRScanner } from './QRScanner';
 import { ContentDisplay } from './ContentDisplay';
 import { NavigationMenu } from './NavigationMenu';
-import { QRTestCodes } from './QRTestCodes';
+// import { QRTestCodes } from './QRTestCodes';
 import { Timer } from './Timer';
 import { FinalPasswordPanel } from './FinalPasswordPanel';
 import { Button } from '@/components/ui/button';
@@ -81,14 +81,14 @@ export const EscapeRoom: React.FC = () => {
           </div>
           
           <div className="flex items-center space-x-2">
-            <Button
+            {/* <Button
               variant="ghost"
               size="sm"
               onClick={handleReset}
               className="text-muted-foreground hover:text-destructive"
             >
               <RotateCcw className="h-4 w-4" />
-            </Button>
+            </Button> */}
             
             <Button
               variant="ghost"
@@ -171,11 +171,6 @@ export const EscapeRoom: React.FC = () => {
             {/* QR Scanner */}
             <QRScanner onScanResult={handleQRScan} />
             
-            {/* QR Test Codes - Only show if no content discovered */}
-            {discoveredContent.length === 0 && (
-              <QRTestCodes onTestCode={handleQRScan} />
-            )}
-            
             {/* Content Display */}
             <ContentDisplay
               content={currentContent}
@@ -204,9 +199,30 @@ export const EscapeRoom: React.FC = () => {
 
           {/* Navigation Menu - Mobile Overlay */}
           {showMenu && (
-            <div className="lg:hidden fixed inset-0 z-50 bg-background/80 backdrop-blur-sm">
-              <div className="absolute top-16 left-0 right-0 bottom-0 overflow-y-auto">
+            <div
+              className="lg:hidden fixed inset-0 z-50 bg-background/80 backdrop-blur-sm"
+              onClick={() => setShowMenu(false)} // ⬅️ cerrar al hacer click fuera del menú
+            >
+              <div
+                className="absolute top-16 left-0 right-0 bottom-0 overflow-y-auto"
+                onClick={(e) => e.stopPropagation()} // ⬅️ prevenir cierre al hacer click dentro
+              >
                 <div className="container mx-auto px-4 py-6">
+                  {/* Botón X para cerrar menú - visible solo en mobile */}
+                  <div className="flex justify-end mb-4 lg:hidden">
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={() => setShowMenu(false)}
+                      className="relative"
+                    >
+                      <X className="h-5 w-5" />
+                      {discoveredContent.length > 0 && (
+                        <span className="absolute -top-1 -right-1 h-3 w-3 bg-neon-orange rounded-full" />
+                      )}
+                    </Button>
+                  </div>
+
                   <NavigationMenu
                     content={discoveredContent}
                     onSelectContent={(content) => {
@@ -214,6 +230,7 @@ export const EscapeRoom: React.FC = () => {
                       setShowMenu(false);
                     }}
                     selectedContent={currentContent}
+                    onClose={() => setShowMenu(false)}
                   />
                 </div>
               </div>

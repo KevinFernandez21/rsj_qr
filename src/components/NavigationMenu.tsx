@@ -18,7 +18,9 @@ interface NavigationMenuProps {
   content: ContentItem[];
   onSelectContent: (content: ContentItem) => void;
   selectedContent: ContentItem | null;
+  onClose?: () => void; // ⬅️ nuevo
 }
+
 
 export const NavigationMenu: React.FC<NavigationMenuProps> = ({ 
   content, 
